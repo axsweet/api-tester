@@ -260,8 +260,13 @@ class ApiTester extends Extension
 
         $classReflector = new \ReflectionClass($class);
 
-        $comment = $classReflector->getMethod($method)->getDocComment();
 
+
+        try{
+            $comment = $classReflector->getMethod($method)->getDocComment();
+        }catch(\Exception $e){
+            //nah
+        }
         if ($comment) {
             $parameters = [];
             preg_match_all('/\@SWG\\\Parameter\(\n(.*?)\)\n/s', $comment, $matches);
