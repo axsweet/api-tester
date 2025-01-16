@@ -39,7 +39,7 @@ class ApiTester extends Extension
      *
      * @param \Illuminate\Foundation\Application|null $app
      */
-    public function __construct(\Illuminate\Foundation\Application $app = null)
+    public function __construct(?\Illuminate\Foundation\Application $app = null)
     {
         $this->app = $app ?: app();
     }
